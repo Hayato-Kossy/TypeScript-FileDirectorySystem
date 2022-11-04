@@ -30,20 +30,23 @@ class View{
 
     static cursorUpToGetHistories(CLI:CLI):void{
         console.log(CLI.getHistories)
-        if (CLI.getHistories.length > 0) {
-            CLI.setCLITextInputDiv = CLI.getHistories[CLI.getHistoriesCnt]
-            CLI.setHistoriesCnt = CLI.getHistoriesCnt - 1
-            if (0 > CLI.getHistoriesCnt) CLI.setHistoriesCnt = CLI.getHistories.length - 1
-        }
+        console.log(CLI.getHistoriesCnt)
+
+
+        CLI.setCLITextInputDiv = CLI.getHistories[CLI.getHistoriesCnt]
+        CLI.setHistoriesCnt = CLI.getHistoriesCnt - 1
+        if (0 > CLI.getHistoriesCnt) CLI.setHistoriesCnt = CLI.getHistories.length - 1
+        
     }
 
     static cursorDownToGetHistories(CLI:CLI):void{
         console.log(CLI.getHistories)
-        if (CLI.getHistories.length > 0) {
-            CLI.setCLITextInputDiv = CLI.getHistories[CLI.getHistoriesCnt]
-            CLI.setHistoriesCnt = CLI.getHistoriesCnt + 1
-            if (CLI.getHistories.length <= CLI.getHistoriesCnt) CLI.setHistoriesCnt = 0
-        }
+        console.log(CLI.getHistoriesCnt)
+
+
+        CLI.setCLITextInputDiv = CLI.getHistories[CLI.getHistoriesCnt]
+        CLI.setHistoriesCnt = CLI.getHistoriesCnt + 1
+        if (CLI.getHistories.length <= CLI.getHistoriesCnt) CLI.setHistoriesCnt = 0
     }
 
     static evaluatedResultsStringFromParsedStringInputArray(parsedStringInputArray:string[],CLI:CLI){
@@ -136,7 +139,7 @@ class CLI{
     }
 
     public set setHistoriesCnt(cnt:number){
-        this.historiesCnt = this.getHistoriesCnt + cnt;
+        this.historiesCnt = cnt;
     }
 
     public get getUserData():FileSystems{

@@ -18,21 +18,19 @@ var View = /** @class */ (function () {
     };
     View.cursorUpToGetHistories = function (CLI) {
         console.log(CLI.getHistories);
-        if (CLI.getHistories.length > 0) {
-            CLI.setCLITextInputDiv = CLI.getHistories[CLI.getHistoriesCnt];
-            CLI.setHistoriesCnt = CLI.getHistoriesCnt - 1;
-            if (0 > CLI.getHistoriesCnt)
-                CLI.setHistoriesCnt = CLI.getHistories.length - 1;
-        }
+        console.log(CLI.getHistoriesCnt);
+        CLI.setCLITextInputDiv = CLI.getHistories[CLI.getHistoriesCnt];
+        CLI.setHistoriesCnt = CLI.getHistoriesCnt - 1;
+        if (0 > CLI.getHistoriesCnt)
+            CLI.setHistoriesCnt = CLI.getHistories.length - 1;
     };
     View.cursorDownToGetHistories = function (CLI) {
         console.log(CLI.getHistories);
-        if (CLI.getHistories.length > 0) {
-            CLI.setCLITextInputDiv = CLI.getHistories[CLI.getHistoriesCnt];
-            CLI.setHistoriesCnt = CLI.getHistoriesCnt + 1;
-            if (CLI.getHistories.length <= CLI.getHistoriesCnt)
-                CLI.setHistoriesCnt = 0;
-        }
+        console.log(CLI.getHistoriesCnt);
+        CLI.setCLITextInputDiv = CLI.getHistories[CLI.getHistoriesCnt];
+        CLI.setHistoriesCnt = CLI.getHistoriesCnt + 1;
+        if (CLI.getHistories.length <= CLI.getHistoriesCnt)
+            CLI.setHistoriesCnt = 0;
     };
     View.evaluatedResultsStringFromParsedStringInputArray = function (parsedStringInputArray, CLI) {
         var result = "";
@@ -130,7 +128,7 @@ var CLI = /** @class */ (function () {
     });
     Object.defineProperty(CLI.prototype, "setHistoriesCnt", {
         set: function (cnt) {
-            this.historiesCnt = this.getHistoriesCnt + cnt;
+            this.historiesCnt = cnt;
         },
         enumerable: false,
         configurable: true

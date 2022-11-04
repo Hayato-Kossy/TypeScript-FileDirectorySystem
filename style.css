@@ -1,0 +1,47 @@
+.vh-60 {
+    height: 60vh;
+}
+
+.vh-20 {
+    height: 20vh;
+}
+h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+    color:white;
+}
+.container {
+    height: 60vh;
+    /* min-height: 300px; */
+    border: 1px solid rgb(3, 142, 3);
+    overflow-y:scroll;
+}
+.bg-header {
+    background: #2A69AE;
+}
+
+.bg-result {
+    background: black;
+}
+
+.output-text {
+    color: rgb(3, 239, 3);
+    font-size: x-large;
+}
+
+.CLI {
+    background-color: black;
+}
+
+.bar {
+    left: 1px;
+}
+
+#CLITextInput
+{
+    overflow: scroll;
+}
+/* 試験用 */
+.pre {
+    color: rgb(3, 239, 3);
+    font-size: x-large;
+}

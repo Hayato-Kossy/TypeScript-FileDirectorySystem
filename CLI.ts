@@ -89,7 +89,10 @@ class View{
                 break;
             case "tree":
                 result = CLI.getUserData.tree(argA)
-                break
+                break;
+            case "help":
+                result = "You can use tree, mkdir, cd, touch, ls, pwd, print, setContent, rm, mv, cp, command"
+                break;
             default:
                 result = "No such command";
         }
@@ -506,19 +509,20 @@ class Controller{
     }
 
     static executeCLI(CLI:CLI):void{
-        let parsedStringInputArray:string[] = CLI.commandLineParser()
-        View.appendEchoParagraph(CLI)
-        View.appendResultParagraph(CLI,View.evaluatedResultsStringFromParsedStringInputArray(parsedStringInputArray,CLI))
-        View.resetCLITextInput(CLI)        
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter"){
+                let parsedStringInputArray:string[] = CLI.commandLineParser()
+                View.appendEchoParagraph(CLI)
+                View.appendResultParagraph(CLI,View.evaluatedResultsStringFromParsedStringInputArray(parsedStringInputArray,CLI))
+                View.resetCLITextInput(CLI)        
+            }
+        });
+    }
+
+    static activateCLI(CLI:CLI):void{
+        this.callHistoriesByKeyDown(CLI);
+        this.executeCLI(CLI);
     }
 }
-let cli:CLI = new CLI();
-Controller.callHistoriesByKeyDown(cli);
-// document.addEventListener("keydown", function(event) {
-
-// })
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter"){
-        Controller.executeCLI(cli)
-    }
-});
+let cli:CLI = new CLI()
+Controller.activateCLI(cli)
